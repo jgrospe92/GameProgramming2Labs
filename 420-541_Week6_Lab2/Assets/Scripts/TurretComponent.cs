@@ -16,11 +16,7 @@ public class TurretComponent : MonoBehaviour
         // direction to face
         Vector3 direction = player.position - transform.position;
 
-        Debug.DrawRay(transform.position, direction, Color.green);
-
- 
-       // float angle = Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward.normalized)) * Mathf.Rad2Deg;
-
+        //Debug.DrawRay(transform.position, direction, Color.green);
 
         float dot = Vector3.Dot(transform.forward, player.transform.position.normalized);
         float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
@@ -34,20 +30,11 @@ public class TurretComponent : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
         }
 
-        //// rotation
-        ////Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.up);
-        ////transform.rotation = Quaternion.Slerp(transform.rotation, angleAxis, Time.deltaTime * 50);
-        //// using Euler
-      //transform.eulerAngles = Vector3.up * angle;
-        //transform.rotation = Quaternion.LookRotation(Vector3.forward * angle);
+        // revert to center
+        //Quaternion targetRotation1 = Quaternion.LookRotation(-Vector3.forward);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation1, 5f * Time.deltaTime);
 
-        //float d = Vector3.Dot(transform.forward, player.forward);
-        //float a = Mathf.Acos(d) * Mathf.Rad2Deg;
-      
-        
     }
-
-    // todo make a method to rotate the turrent 45 deg towards the player
 
     public void decreaseHp()
     {
