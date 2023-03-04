@@ -19,7 +19,11 @@ public class TurretComponent : MonoBehaviour
         Debug.DrawRay(transform.position, direction, Color.green);
 
  
-        float angle = Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward.normalized)) * Mathf.Rad2Deg;
+       // float angle = Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward.normalized)) * Mathf.Rad2Deg;
+
+
+        float dot = Vector3.Dot(transform.forward, player.transform.position.normalized);
+        float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
         Debug.Log("angle: " + angle);
 
